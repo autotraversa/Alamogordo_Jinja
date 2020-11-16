@@ -1,0 +1,44 @@
+hostname {{ item.hostname }}
+!
+{% if item.spanning_tree_vlan is defined and item.spanning_tree_vlan_priority is defined and item.spanning_tree_vlan | length > 0 and item.spanning_tree_vlan_priority | length > 0 %}
+spanning-tree vlan {{ item.spanning_tree_vlan }} priority {{ item.spanning_tree_vlan_priority }}
+{% else %}
+{% endif %}
+{% if item.spanning_tree_bpduprotection_port is defined and item.spanning_tree_bpduprotection_port | length > 0 %}
+flow exporter {{ item.spanning_tree_bpdu_protection_port }} bpdu-protection
+{% else %}
+{% endif %}
+{% if item.spanning_tree_loop_protect_port is defined and item.spanning_tree_loop_protect_port | length > 0 %}
+loop-protect {{ item.spanning_tree_loop_protect_port }}
+{% else %}
+{% endif %}
+!
+{% if item.snmp_community_operator is defined and item.snmp_community_operator | length > 0  %}
+snmp-server community {{ item.snmp_community_operator }} operator
+{% endif %}
+{% if item.snmp_community_unrestricted is defined and item.snmp_community_unrestricted | length > 0  %}
+snmp-server community {{ item.snmp_community_unrestricted }} unrestricted
+{% else %}
+{% endif %}
+{% if item.snmp_contact is defined and item.snmp_location is defined and item.snmp_contact | length > 0 and item.snmp_location | length > 0 %}
+snmp-server contact {{ item.snmp_contact }} location {{ item.snmp_location }}
+{% else %}
+{% endif %}
+!
+{% if item.ntp_server is defined and item.ntp_server | length > 0 %}
+timesync ntp
+ntp unicast
+ntp enable
+ntp server {{ item.ntp_server }}
+{% else %}
+{% endif %}
+{% if item.timezone is defined and item.timezone | length > 0 %}
+time daylight-time-rule continental-us-and-canada
+time timezone {{ item.timezone }}
+{% else %}
+{% endif %}
+!
+{% if item.dns_suffix is defined and item.dns_suffix | length > 0 %}
+ip dns domain-name {{ item.dns_suffix}}
+{% else %}
+{% endif %}
