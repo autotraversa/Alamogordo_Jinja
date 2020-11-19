@@ -5,7 +5,7 @@ spanning-tree vlan {{ item.spanning_tree_vlan }} priority {{ item.spanning_tree_
 {% else %}
 {% endif %}
 {% if item.spanning_tree_bpduprotection_port is defined and item.spanning_tree_bpduprotection_port | length > 0 %}
-flow exporter {{ item.spanning_tree_bpdu_protection_port }} bpdu-protection
+spanning-tree {{ item.spanning_tree_bpdu_protection_port }} bpdu-protection
 {% else %}
 {% endif %}
 {% if item.spanning_tree_loop_protect_port is defined and item.spanning_tree_loop_protect_port | length > 0 %}
@@ -20,25 +20,58 @@ snmp-server community {{ item.snmp_community_operator }} operator
 snmp-server community {{ item.snmp_community_unrestricted }} unrestricted
 {% else %}
 {% endif %}
-{% if item.snmp_contact is defined and item.snmp_location is defined and item.snmp_contact | length > 0 and item.snmp_location | length > 0 %}
-snmp-server contact {{ item.snmp_contact }} location {{ item.snmp_location }}
+{% if item.snmp_contact is defined and item.snmp_contact | length > 0 %}
+snmp-server contact {{ item.snmp_contact }}
+{% else %}
+{% endif %}
+{% if item.snmp_location is defined and item.snmp_location | length > 0 %}
+snmp-server location {{ item.snmp_location }}
 {% else %}
 {% endif %}
 !
-{% if item.ntp_server is defined and item.ntp_server | length > 0 %}
+{% if item.ntp_server is defined %}
+{% set ntp_server = item.ntp_server.split(',') %}
+{% for each_ntp_server in ntp_server %}
+{% set final_ntp_server = ntp_server[loop.index-1] %}
 timesync ntp
 ntp unicast
 ntp enable
-ntp server {{ item.ntp_server }}
+ntp server {{ final.ntp_server }}
 {% else %}
 {% endif %}
 {% if item.timezone is defined and item.timezone | length > 0 %}
 time daylight-time-rule continental-us-and-canada
 time timezone {{ item.timezone }}
+{% endfor %}
 {% else %}
 {% endif %}
 !
 {% if item.dns_suffix is defined and item.dns_suffix | length > 0 %}
 ip dns domain-name {{ item.dns_suffix}}
+{% else %}
+{% endif %}
+{% for dns_server in item.dns_server %}
+ip dns server-address priority {{dns_server.index, dns_server}}
+{% else %}
+{% endfor %}
+
+{% for dhcp_helper in item.dhcp_helper %}
+ip dns server-address priority {{dhcp_helper.index, dhcp_helper}}
+{% else %}
+{% endfor %}
+
+{% if item.ssh_key_bitsize is defined and item.ssh_key_bitsize | length > 0 %}
+crypto key generate ssh rsa {{ item.ssh_key_bitsize}}
+ip ssh
+{% else %}
+{% endif %}
+
+{% if item.web_ssl is defined and item.web_ssl = yes %}
+web-management ssl
+{% else %}
+{% endif %}
+
+{% if item.http_server is defined and item.http_server = no %}
+no ip http-server
 {% else %}
 {% endif %}
