@@ -1,0 +1,20 @@
+- name: csv
+  hosts: localhost
+  tasks:
+  - name: Path to CSV, delimeter $, register to object users, localhost
+    community.general.read_csv:
+      path: Alamogordo.csv
+      delimiter: $
+    register: jinja
+    delegate_to: localhost
+
+#  - name: Creating Loop
+#    ansible.builtin.debug:
+#      msg: "Testing {{ item.hostname }}"
+#    loop: "{{ users.list }}"
+
+  - name: Jinja Template
+    template:
+      src: Alamogordo.j2
+      dest: "/var/lib/awx/projects/_73__alamogordo/config/{{ item.hostname }}.txt"
+    loop: "{{ jinja.list }}"
