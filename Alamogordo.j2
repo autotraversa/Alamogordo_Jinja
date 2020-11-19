@@ -32,13 +32,12 @@ snmp-server location {{ item.snmp_location }}
 {% if item.ntp_server is defined %}
 {% set ntp_server = item.ntp_server.split(',') %}
 {% for each_ntp_server in ntp_server %}
-{% set final_ntp_server = ntp_server[loop.index-1] %}
 timesync ntp
 ntp unicast
 ntp enable
-ntp server {{ final.ntp_server }}
-{% else %}
+ntp server {{ each_ntp_server }}
 {% endfor %}
+{% else %}
 {% endif %}
 !
 {% if item.timezone is defined and item.timezone | length > 0 %}
@@ -53,11 +52,6 @@ ip dns domain-name {{ item.dns_suffix}}
 {% endif %}
 {% for dns_server in item.dns_server %}
 ip dns server-address priority {{dns_server.index, dns_server}}
-{% else %}
-{% endfor %}
-!
-{% for dhcp_helper in item.dhcp_helper %}
-ip dhcp_helper {{dhcp_helper.index, dhcp_helper}}
 {% else %}
 {% endfor %}
 !
