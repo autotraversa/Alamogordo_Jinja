@@ -38,11 +38,12 @@ ntp unicast
 ntp enable
 ntp server {{ final.ntp_server }}
 {% else %}
+{% endfor %}
 {% endif %}
+!
 {% if item.timezone is defined and item.timezone | length > 0 %}
 time daylight-time-rule continental-us-and-canada
 time timezone {{ item.timezone }}
-{% endfor %}
 {% else %}
 {% endif %}
 !
