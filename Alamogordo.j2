@@ -67,12 +67,12 @@ ip ssh
 {% else %}
 {% endif %}
 
-{% if item.web_management_ssl is defined and item.web_management_ssl = yes %}
+{% if item.web_management_ssl is defined and item.web_management_ssl == 'yes' %}
 web-management ssl
 {% else %}
 {% endif %}
 
-{% if item.http_server is defined and item.http_server = no %}
+{% if item.http_server is defined and item.http_server == 'no' %}
 no ip http-server
 {% else %}
 {% endif %}
