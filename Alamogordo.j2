@@ -1,5 +1,4 @@
 hostname {{ item.hostname }}
-!
 {% if item.spanning_tree_mode is defined and item.spanning_tree_mode == "rapid" %}
 spanning-tree mode rapid-pvst
 {% elif item.spanning_tree_mode is defined and item.spanning_tree_mode == "mst" %}
@@ -29,7 +28,6 @@ loop-protect {{ item.spanning_tree_loop_protect_port }}
 loop-protect disable-timer {{ item.spanning_tree_loop_protect_disable_timer }}
 {% else %}
 {% endif %}
-!
 {% if item.snmp_community_operator is defined and item.snmp_community_operator | length > 0  %}
 snmp-server community {{ item.snmp_community_operator }} operator
 {% endif %}
@@ -45,7 +43,6 @@ snmp-server contact {{ item.snmp_contact }}
 snmp-server location {{ item.snmp_location }}
 {% else %}
 {% endif %}
-!
 {% if item.ntp_server is defined %}
 ntp unicast
 ntp enable
@@ -56,39 +53,32 @@ ntp server {{ each_ntp_server }}
 {% endfor %}
 {% else %}
 {% endif %}
-!
 {% if item.timezone is defined and item.timezone | length > 0 %}
 time daylight-time-rule continental-us-and-canada
 time timezone {{ item.timezone }}
 {% else %}
 {% endif %}
-!
 {% if item.dns_suffix is defined and item.dns_suffix | length > 0 %}
 ip dns domain-name {{ item.dns_suffix}}
 {% else %}
 {% endif %}
-!
 {% if item.ssh_key_bitsize is defined and item.ssh_key_bitsize | length > 0 %}
 crypto key generate ssh rsa {{ item.ssh_key_bitsize}}
 ip ssh
 {% else %}
 {% endif %}
-!
 {% if item.web_management_ssl is defined and item.web_management_ssl == 'yes' %}
 web-management ssl
 {% else %}
 {% endif %}
-!
 {% if item.ip_routing is defined and item.ip_routing == 'yes' %}
 ip routing
 {% else %}
 {% endif %}
-!
 {% if item.http_server is defined and item.http_server == 'no' %}
 no ip http-server
 {% else %}
 {% endif %}
-!
 {% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}
 router ospf
 area {{ ip_ospf_area }}
@@ -118,8 +108,8 @@ ip ospf area {{ list[5]|trim() }}
 {% endif %}
 {% endfor %}
 
-
-banner motd "WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
+banner motd "WARNING
+WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
  WARNING! WARNING!\nWARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
  WARNING! WARNING! WARNING!\n\n \n\n          You have reached a New Mexico
  State Government owned node.\n\n \n\n1) Unauthorized access, unauthorized
