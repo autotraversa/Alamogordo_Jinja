@@ -1,6 +1,5 @@
 
 hostname {{ item.hostname }}
-
 {% for item in csvfile.split("\n") %}
 {% if loop.index != 1 %}
 {% set list = item.split("$") %}
@@ -23,7 +22,6 @@ ip igmp
 ip ospf area {{ list[5]|trim() }}
 {% endif %}
 {% endfor %}
-
 {% if item.spanning_tree_mode is defined and item.spanning_tree_mode == "rapid" %}
 spanning-tree
 spanning-tree mode rapid-pvst
@@ -113,8 +111,6 @@ area {{ item.ip_ospf_area }}
 enable
 {% else %}
 {% endif %}
-
-
 banner motd "WARNING
 WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
  WARNING! WARNING!\nWARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
