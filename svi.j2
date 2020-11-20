@@ -1,4 +1,19 @@
 {% for item in csvfile.split("\n") %}
-{% set list = item.split("$") %}
-{{ list[0] }}
+{%   if loop.index != 1 %}
+{%     set list = item.split("$") %}
+vlan {{ list[1]|trim() }}
+name "{{ list[0]|trim() }}"
+{%       if list[2] != "N/A" %}
+ip address {{ list[2]|trim() }}
+{%       endif %}
+ip helper-address {{ list[3]|trim() }}
+{%         if list[4] == "yes" %}
+voice
+{%         else %}
+{%         endif %}
+{%           if list[5] is defined %}
+{{ list[5]|trim() }}
+{%           else %}
+{%           endif %}
+{%   endif %}
 {% endfor %}
