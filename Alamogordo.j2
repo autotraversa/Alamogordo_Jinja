@@ -8,6 +8,8 @@ ip routing
 interface loopback 0
 ip add 1.1.1.1
 exit
+exit
+conf t
 router ospf
 area {{ item.ip_ospf_area }}
 enable
