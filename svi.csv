@@ -1,6 +1,6 @@
-vlan_name$vlan_id
-Switch-Mgmt$2
-Data$10
-AP-Mgmt$17
-VOIP-1$25
-Transport to Admin$4004
+vlan_name$vlan_id$vlan_ip_address
+Switch-Mgmt$2$10.30.2.1/24
+Data$10$10.30.10.1/22
+AP-Mgmt$17$10.30.17.1/24
+VOIP-1$25$10.30.25.1/24
+Transport to Admin$4004$10.255.255.6/30
