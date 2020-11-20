@@ -145,7 +145,6 @@ no web-management
 {% else %}
 {% endif %}
 
-{% if item.mgmt_vlan != "N/A" %}
 {% if item.mgmt_vlan is defined and item.mgmt_ip is defined and item.mgmt_vlan | length > 0 and item.mgmt_ip | length > 0 %}
 vlan {{ item.mgmt_vlan }}
 name Switch-Mgmt
@@ -154,7 +153,6 @@ ip address {{ item.mgmt_ip }}
 {% endif %}
 {% endif %}
 
-{% if item.oobm_mgmt_ip != "N/A" %}
 {% if item.oobm_mgmt_ip is defined and item.oobm_mgmt_ip | length > 0 %}
 oobm
 ip address {{ item.oobm_mgmt_ip }}
