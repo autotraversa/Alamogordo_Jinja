@@ -1,5 +1,9 @@
 
 hostname {{ item.hostname }}
+{% if item.ip_routing is defined and item.ip_routing == 'yes' %}
+ip routing
+{% else %}
+{% endif %}
 {% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}
 router ospf
 area {{ item.ip_ospf_area }}
@@ -101,10 +105,6 @@ ip ssh
 {% endif %}
 {% if item.web_management_ssl is defined and item.web_management_ssl == 'yes' %}
 web-management ssl
-{% else %}
-{% endif %}
-{% if item.ip_routing is defined and item.ip_routing == 'yes' %}
-ip routing
 {% else %}
 {% endif %}
 {% if item.http_server is defined and item.http_server == 'no' %}
