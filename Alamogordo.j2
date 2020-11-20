@@ -85,7 +85,7 @@ no ip http-server
 {% endif %}
 {% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}
 router ospf
-area {{ ip_ospf_area }}
+area {{ item.ip_ospf_area }}
 enable
 {% else %}
 {% endif %}
