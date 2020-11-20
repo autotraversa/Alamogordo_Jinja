@@ -11,6 +11,8 @@ ip address {{ list[2]|trim() }}
 {%   for each_list_helper in list_helper %}
 ip helper-address {{ each_list_helper|trim() }}
 {%   endfor %}
+{%   else %}
+{%   endif %}
 {%   if list[4] == "yes" %}
 ip igmp
 {%   else %}
