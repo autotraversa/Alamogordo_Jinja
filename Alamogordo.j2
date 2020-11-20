@@ -1,15 +1,24 @@
 hostname {{ item.hostname }}
 !
 {% if item.spanning_tree_vlan is defined and item.spanning_tree_vlan_priority is defined and item.spanning_tree_vlan | length > 0 and item.spanning_tree_vlan_priority | length > 0 %}
+spanning-tree
 spanning-tree vlan {{ item.spanning_tree_vlan }} priority {{ item.spanning_tree_vlan_priority }}
 {% else %}
 {% endif %}
-{% if item.spanning_tree_bpduprotection_port is defined and item.spanning_tree_bpduprotection_port | length > 0 %}
+{% if item.spanning_tree_bpdu_protection_port is defined and item.spanning_tree_bpdu_protection_port | length > 0 %}
 spanning-tree {{ item.spanning_tree_bpduprotection_port }} bpdu-protection
+{% else %}
+{% endif %}
+{% if item.spanning_tree_bpdu_protection_timeout is defined and item.spanning_tree_bpdu_protection_timeout | length > 0 %}
+spanning-tree bpdu-protection-timeout {{ item.spanning_tree_bpdu_protection_timeout }}
 {% else %}
 {% endif %}
 {% if item.spanning_tree_loop_protect_port is defined and item.spanning_tree_loop_protect_port | length > 0 %}
 loop-protect {{ item.spanning_tree_loop_protect_port }}
+{% else %}
+{% endif %}
+{% if item.spanning_tree_loop_protect_disable_timer is defined and item.spanning_tree_loop_protect_disable_timer | length > 0 %}
+loop-protect disable-timer {{ item.spanning_tree_loop_protect_disable_timer }}
 {% else %}
 {% endif %}
 !
@@ -56,13 +65,40 @@ crypto key generate ssh rsa {{ item.ssh_key_bitsize}}
 ip ssh
 {% else %}
 {% endif %}
-
+!
 {% if item.web_management_ssl is defined and item.web_management_ssl == 'yes' %}
 web-management ssl
 {% else %}
 {% endif %}
-
+!
+{% if item.ip_routing is defined and item.ip_routing == 'yes' %}
+ip routing
+{% else %}
+{% endif %}
+!
 {% if item.http_server is defined and item.http_server == 'no' %}
 no ip http-server
 {% else %}
 {% endif %}
+!
+{​​​​​​​% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}​​​​​​​
+router ospf
+area {​​​​​​​{​​​​​​​ ip_ospf_area }​​​​​​​}​​​​​​​
+enable
+{​​​​​​​% else %}​​​​​​​
+{​​​​​​​% endif %}​​​​​​​
+
+
+
+banner motd "WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
+ WARNING! WARNING!\nWARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
+ WARNING! WARNING! WARNING!\n\n \n\n          You have reached a New Mexico
+ State Government owned node.\n\n \n\n1) Unauthorized access, unauthorized
+ attempts to access, and attempts to disrupt\n   any or all of this nodes
+ services is prohibited.\n\n \n\n2) Unauthorized is defined as not being given
+ explicit permission in writing by\n   an authoritative administrator of this
+ node.\n   P.O.C.: Steve Van Duyn\n   Phone: (575) 812-6030\n\n \n\n3) Any and
+ all violators of this directive will be prosecuted to the furthest ex\ntent of
+ all applicable rules and/or public laws!\n\n \n\nWARNING! WARNING! WARNING!
+ WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!\nWARNING! WARNING!
+ WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!\n"
