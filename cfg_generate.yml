@@ -20,8 +20,8 @@
         dest: "/var/lib/awx/projects/_73__alamogordo/svi_output.txt"
       run_once: true
 
-- name: Jinja Template
-  template:
-    src: Alamogordo.j2
-    dest: "/var/lib/awx/projects/_73__alamogordo/config/{{ item.hostname }}.txt"
-  loop: "{{ jinja.list }}"
+  - name: Jinja Template
+    template:
+      src: Alamogordo.j2
+      dest: "/var/lib/awx/projects/_73__alamogordo/config/{{ item.hostname }}.txt"
+    loop: "{{ jinja.list }}"
