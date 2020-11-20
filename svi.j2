@@ -3,18 +3,17 @@
 {% set list = item.split("$") %}
 vlan {{ list[1]|trim() }}
 name "{{ list[0]|trim() }}"
-{% if list[2] != "N/A" %}
+{%   if list[2] != "N/A" %}
 ip address {{ list[2]|trim() }}
-{% if list[3] != "N/A" %}
-{% set list_helper = list[3].split(",") %}
-{% for each_list_helper in list_helper %}
+{%   endif %}
+{%   if list[3] != "N/A" %}
+{%   set list_helper = list[3].split(",") %}
+{%   for each_list_helper in list_helper %}
 ip helper-address {{ each_list_helper|trim() }}
-{% endfor %}
-{% endif %}
-{% if list[4] == "yes" %}
+{%   endfor %}
+{%   if list[4] == "yes" %}
 ip igmp
-{% elif %}
-{% endif %}
-{% endif %}
+{%   else %}
+{%   endif %}
 {% endif %}
 {% endfor %}
