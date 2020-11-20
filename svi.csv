@@ -1,6 +1,6 @@
-vlan_name$vlan_id$vlan_ip_address$vlan_ip_helper$vlan_igmp
-Switch-Mgmt$2$10.30.2.1/24$N/A$no
-Data$10$10.30.10.1/22$10.12.0.59, 10.12.0.69$yes
-AP-Mgmt$17$10.30.17.1/24$10.12.0.59, 10.12.0.69$no
-VOIP-1$25$10.30.25.1/24$10.12.0.59$yes
-Transport to Admin$4004$10.255.255.6/30$N/A$no
+vlan_name$vlan_id$vlan_ip_address$vlan_ip_helper$vlan_igmp$vlan_ospf_area
+Switch-Mgmt$2$10.30.2.1/24$N/A$no$160
+Data$10$10.30.10.1/22$10.12.0.59, 10.12.0.69$yes$160
+AP-Mgmt$17$10.30.17.1/24$10.12.0.59, 10.12.0.69$no$160
+VOIP-1$25$10.30.25.1/24$10.12.0.59$yes$160
+Transport to Admin$4004$10.255.255.6/30$N/A$no$160
