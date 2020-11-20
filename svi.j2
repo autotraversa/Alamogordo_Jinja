@@ -1,4 +1,4 @@
 {% for item in csvfile.split("\n") %}
-{% set list = item.split(",") %}
+{% set list = item.split("$") %}
 {{ list[0] }}
 {% endfor %}
