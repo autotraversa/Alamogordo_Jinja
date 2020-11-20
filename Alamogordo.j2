@@ -86,9 +86,9 @@ snmp-server location "{{ item.snmp_location }}"
 {% else %}
 {% endif %}
 {% if item.ntp_server is defined %}
+timesync ntp
 ntp unicast
 ntp enable
-timesync ntp
 {% set ntp_server = item.ntp_server.split(',') %}
 {% for each_ntp_server in ntp_server %}
 ntp server {{ each_ntp_server }}
