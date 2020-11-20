@@ -1,5 +1,8 @@
 
 hostname {{ item.hostname }}
+vlan 1
+no ipv6 enable
+no ipv6 address dhcp full
 {% if item.ip_routing is defined and item.ip_routing == 'yes' %}
 ip routing
 {% else %}
