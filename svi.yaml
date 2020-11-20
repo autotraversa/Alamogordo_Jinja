@@ -9,5 +9,5 @@
     - name: Parse CSV To YAML
       template:
         src: "./svi.j2"
-        dest: "svi_output.txt"
+        dest: "/var/lib/awx/projects/_73__alamogordo/svi_output.txt"
       run_once: true
