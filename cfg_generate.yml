@@ -1,7 +1,5 @@
 - name: csv
   hosts: localhost
-  connection: local
-  gather_facts: false
   tasks:
   - name: Path to CSV, delimeter $, register to object users, localhost
     community.general.read_csv:
@@ -10,12 +8,8 @@
     register: jinja
     delegate_to: localhost
 
-- name: Svi Template
-  vars:
-    csvfile: "{{ lookup('file', 'svi.csv') }}"
-  tasks:
-    - name: Parse CSV To YAML
-      template:
-        src: "./svi.j2"
-        dest: "/var/lib/awx/projects/_73__alamogordo/svi_output.txt"
-      run_once: true
+  - name: Jinja Template
+    template:
+      src: Alamogordo.j2
+      dest: "/var/lib/awx/projects/_73__alamogordo/config/{{ item.hostname }}.txt"
+    loop: "{{ jinja.list }}"
