@@ -17,7 +17,7 @@ spanning-tree vlan {{ item.spanning_tree_vlan }} priority {{ item.spanning_tree_
 {% else %}
 {% endif %}
 {% if item.spanning_tree_bpdu_protection_port is defined and item.spanning_tree_bpdu_protection_port | length > 0 %}
-spanning-tree {{ item.spanning_tree_bpduprotection_port }} bpdu-protection
+spanning-tree {{ item.spanning_tree_bpdu_protection_port }} bpdu-protection
 {% else %}
 {% endif %}
 {% if item.spanning_tree_bpdu_protection_timeout is defined and item.spanning_tree_bpdu_protection_timeout | length > 0 %}
