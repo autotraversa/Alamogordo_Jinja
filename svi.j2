@@ -3,5 +3,8 @@
 {% set list = item.split("$") %}
 vlan {{ list[1]|trim() }}
 name "{{ list[0]|trim() }}"
+{% if list[2] != "N/A" %}
+ip address {{ list[2]|trim() }}
+{% endif %}
 {% endif %}
 {% endfor %}
