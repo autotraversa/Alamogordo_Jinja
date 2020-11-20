@@ -89,13 +89,16 @@ no ip http-server
 {% else %}
 {% endif %}
 !
-{​​​​​​​% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}​​​​​​​
+{% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}
 router ospf
-area {​​​​​​​{​​​​​​​ ip_ospf_area }​​​​​​​}​​​​​​​
+area {{ ip_ospf_area }}
 enable
-{​​​​​​​% else %}​​​​​​​
-{​​​​​​​% endif %}​​​​​​​
-
+{% else %}
+{% endif %}
+{% if item.l2_vlans is defined and item.l2_vlans == "yes" %}
+{% include 'svi_output.txt' %}
+{% else %}
+{% endif %}
 
 
 banner motd "WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
