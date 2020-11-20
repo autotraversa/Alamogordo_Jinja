@@ -95,10 +95,28 @@ area {{ ip_ospf_area }}
 enable
 {% else %}
 {% endif %}
-{% if item.l2_vlans is defined and item.l2_vlans == "yes" %}
-{% include '/var/lib/awx/projects/_73__alamogordo/svi_output.txt' %}
-{% else %}
+{% for item in csvfile.split("\n") %}
+{% if loop.index != 1 %}
+{% set list = item.split("$") %}
+vlan {{ list[1]|trim() }}
+name "{{ list[0]|trim() }}"
+{%   if list[2] != "N/A" %}
+ip address {{ list[2]|trim() }}
+{%   endif %}
+{%   if list[3] != "N/A" %}
+{%   set list_helper = list[3].split(",") %}
+{%   for each_list_helper in list_helper %}
+ip helper-address {{ each_list_helper|trim() }}
+{%   endfor %}
+{%   else %}
+{%   endif %}
+{%   if list[4] == "yes" %}
+ip igmp
+{%   else %}
+{%   endif %}
+ip ospf area {{ list[5]|trim() }}
 {% endif %}
+{% endfor %}
 
 
 banner motd "WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
