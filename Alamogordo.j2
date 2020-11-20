@@ -50,8 +50,8 @@ ip igmp
 {% endif %}
 ip ospf area {{ list[5]|trim() }}
 {% endif %}
-{% endif %}
 {% endfor %}
+{% endif %}
 exit
 {% if item.spanning_tree_mode is defined and item.spanning_tree_mode == "rapid" %}
 spanning-tree
