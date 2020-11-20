@@ -110,6 +110,13 @@ ip ssh
 {% else %}
 {% endif %}
 {% if item.web_management_ssl is defined and item.web_management_ssl == 'yes' %}
+crypto pki enroll-self-signed certificate-name SSL subject
+Common Name
+Org Unit
+Org Name
+Locality
+State
+US
 web-management ssl
 {% else %}
 {% endif %}
