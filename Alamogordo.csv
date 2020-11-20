@@ -1,6 +1,6 @@
-hostname$spanning_tree_vlan$spanning_tree_vlan_priority$spanning_tree_bpduprotection_port$spanning_tree_loop_protect_port$snmp_community_operator$snmp_community_unrestricted$snmp_contact$snmp_location$ntp_server$timezone$dns_suffix$web_management_ssl$http_server
-ADS-MDF$2,10,17,25,4004$1$1/1-1/48,2/1-2/48$1/1-1/48,2/1-2/48$@LaMog0rd0$A1@m06ord0$IT Department$ADS-MDF$192.43.244.18, 192.43.224.18$-420$aps4kids.org$yes$no
-ADS-IDFB$$$1/1-1/48$1/1-1/48$@LaMog0rd0$A1@m06ord0$IT Department$ADS-IDFB$192.43.244.18, 192.43.224.18$-420$aps4kids.org$yes$no
-ADS-IDFC$$$1/1-1/48$1/1-1/48$@LaMog0rd0$A1@m06ord0$IT Department$ADS-IDFC$192.43.244.18, 192.43.224.18$-420$aps4kids.org$yes$no
-ADS-IDFD$$$1/1-1/48$1/1-1/48$@LaMog0rd0$A1@m06ord0$IT Department$ADS-IDFD$192.43.244.18, 192.43.224.18$-420$aps4kids.org$yes$no
-ADS-IDFE$$$1/1-1/48$1/1-1/48$@LaMog0rd0$A1@m06ord0$IT Department$ADS-IDFE$192.43.244.18, 192.43.224.18$-420$aps4kids.org$yes$no
+hostname$spanning_tree_vlan$spanning_tree_vlan_priority$spanning_tree_bpduprotection_port$spanning_tree_loop_protect_port$snmp_community_operator$snmp_community_unrestricted$snmp_contact$snmp_location$ntp_server$timezone$dns_suffix$web_management_ssl$http_server$l2_vlans
+ADS-MDF$2,10,17,25,4004$1$1/1-1/48,2/1-2/48$1/1-1/48,2/1-2/48$@LaMog0rd0$A1@m06ord0$IT Department$ADS-MDF$192.43.244.18, 192.43.224.18$-420$aps4kids.org$yes$no$yes
+ADS-IDFB$$$1/1-1/48$1/1-1/48$@LaMog0rd0$A1@m06ord0$IT Department$ADS-IDFB$192.43.244.18, 192.43.224.18$-420$aps4kids.org$yes$no$yes
+ADS-IDFC$$$1/1-1/48$1/1-1/48$@LaMog0rd0$A1@m06ord0$IT Department$ADS-IDFC$192.43.244.18, 192.43.224.18$-420$aps4kids.org$yes$no$yes
+ADS-IDFD$$$1/1-1/48$1/1-1/48$@LaMog0rd0$A1@m06ord0$IT Department$ADS-IDFD$192.43.244.18, 192.43.224.18$-420$aps4kids.org$yes$no$yes
+ADS-IDFE$$$1/1-1/48$1/1-1/48$@LaMog0rd0$A1@m06ord0$IT Department$ADS-IDFE$192.43.244.18, 192.43.224.18$-420$aps4kids.org$yes$no$yes
