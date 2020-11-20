@@ -121,9 +121,10 @@ web-management ssl
 {% else %}
 {% endif %}
 {% if item.http_server is defined and item.http_server == 'no' %}
-no ip http-server
+no web-management
 {% else %}
 {% endif %}
+
 banner motd "WARNING
 WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
  WARNING! WARNING!\nWARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
