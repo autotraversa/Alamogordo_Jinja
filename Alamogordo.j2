@@ -19,6 +19,7 @@ no vlan 100
 exit
 {% else %}
 {% endif %}
+
 {% if item.l2_vlans is defined and item.l2_vlans == "yes" %}
 {% for item in csvfile.split("\n") %}
 {% if loop.index != 1 %}
@@ -26,8 +27,9 @@ exit
 vlan {{ list[1]|trim() }}
 name "{{ list[0]|trim() }}"
 {% endif %}
-{% endif %}
 {% endfor %}
+{% endif %}
+
 {% if item.l3_vlans is defined and item.l3_vlans == "yes" %}
 {% for item in csvfile.split("\n") %}
 {% if loop.index != 1 %}
