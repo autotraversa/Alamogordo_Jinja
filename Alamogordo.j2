@@ -52,6 +52,7 @@ ip igmp
 {% endif %}
 ip ospf area {{ list[5]|trim() }}
 {% endif %}
+{% endif %}
 {% endfor %}
 exit
 
