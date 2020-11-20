@@ -10,12 +10,6 @@
     register: jinja
     delegate_to: localhost
 
-  - name: Jinja Template
-    template:
-      src: Alamogordo.j2
-      dest: "/var/lib/awx/projects/_73__alamogordo/config/{{ item.hostname }}.txt"
-    loop: "{{ jinja.list }}"
-    
   - name: Svi Template
     vars:
       csvfile: "{{ lookup('file', 'svi.csv') }}"
