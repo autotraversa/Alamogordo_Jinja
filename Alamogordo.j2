@@ -151,7 +151,6 @@ name Switch-Mgmt
 ip address {{ item.mgmt_ip }}
 {% else %}
 {% endif %}
-{% endif %}
 
 {% if item.oobm_mgmt_ip is defined and item.oobm_mgmt_ip | length > 0 %}
 oobm
