@@ -78,11 +78,11 @@ snmp-server community {{ item.snmp_community_unrestricted }} unrestricted
 {% else %}
 {% endif %}
 {% if item.snmp_contact is defined and item.snmp_contact | length > 0 %}
-snmp-server contact {{ item.snmp_contact }}
+snmp-server contact "{{ item.snmp_contact }}"
 {% else %}
 {% endif %}
 {% if item.snmp_location is defined and item.snmp_location | length > 0 %}
-snmp-server location {{ item.snmp_location }}
+snmp-server location "{{ item.snmp_location }}"
 {% else %}
 {% endif %}
 {% if item.ntp_server is defined %}
