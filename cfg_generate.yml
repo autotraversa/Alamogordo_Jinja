@@ -1,4 +1,5 @@
 - name: csv
+  gather_facts: false
   hosts: localhost
   vars:
     csvfile: "{{ lookup('file', 'svi.csv') }}"
