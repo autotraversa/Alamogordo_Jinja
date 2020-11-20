@@ -67,7 +67,7 @@ ip dns domain-name {{ item.dns_suffix}}
 {% else %}
 {% endif %}
 {% if item.ssh_key_bitsize is defined and item.ssh_key_bitsize | length > 0 %}
-crypto key generate ssh rsa {{ item.ssh_key_bitsize}}
+crypto key generate ssh rsa bits {{ item.ssh_key_bitsize}}
 ip ssh
 {% else %}
 {% endif %}
