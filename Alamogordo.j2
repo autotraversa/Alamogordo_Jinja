@@ -6,7 +6,7 @@ ip routing
 {% endif %}
 {% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}
 vlan 100
-ip add 1.1.1.1
+ip add 1.1.1.1/32
 exit
 router ospf
 area {{ item.ip_ospf_area }}
