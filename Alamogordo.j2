@@ -7,6 +7,7 @@ ip routing
 {% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}
 interface loopback 0
 ip add 1.1.1.1
+exit
 router ospf
 area {{ item.ip_ospf_area }}
 enable
