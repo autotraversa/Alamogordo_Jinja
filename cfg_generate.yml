@@ -1,4 +1,4 @@
-- name: csv1
+- name: csv
   hosts: localhost
   tasks:
   - name: Path to CSV, delimeter $, register to object users, localhost
