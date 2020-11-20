@@ -5,6 +5,9 @@ vlan {{ list[1]|trim() }}
 name "{{ list[0]|trim() }}"
 {% if list[2] != "N/A" %}
 ip address {{ list[2]|trim() }}
+{% if list[3] != "N/A" %}
+ip helper-address {{ list[3]|trim() }}
+{% endif %}
 {% endif %}
 {% endif %}
 {% endfor %}
