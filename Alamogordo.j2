@@ -50,6 +50,7 @@ ip igmp
 {% endif %}
 ip ospf area {{ list[5]|trim() }}
 {% endif %}
+{% endif %}
 {% endfor %}
 exit
 {% if item.spanning_tree_mode is defined and item.spanning_tree_mode == "rapid" %}
@@ -154,7 +155,6 @@ ip address {{ item.mgmt_ip }}
 oobm
 ip address {{ item.oobm_mgmt_ip }}
 {% else %}
-{% endif %}
 {% endif %}
 
 banner motd "WARNING
