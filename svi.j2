@@ -6,8 +6,10 @@ name "{{ list[0]|trim() }}"
 {% if list[2] != "N/A" %}
 ip address {{ list[2]|trim() }}
 {% if list[3] != "N/A" %}
-ip helper-address {{ list[3]|trim() }}
+{% for each_vlan_ip_helper in list[3] %}
+ip helper-address {{ each_vlan_ip_helper|trim() }}
 {% endif %}
+{% endfor %}
 {% endif %}
 {% endif %}
 {% endfor %}
