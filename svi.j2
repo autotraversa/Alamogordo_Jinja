@@ -17,5 +17,8 @@ ip helper-address {{ each_list_helper|trim() }}
 ip igmp
 {%   else %}
 {%   endif %}
+ip ospf area {{ list[5]|trim() }}
 {% endif %}
 {% endfor %}
+
+
