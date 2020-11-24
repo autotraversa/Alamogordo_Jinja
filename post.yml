@@ -2,5 +2,5 @@
 - hosts: all
   tasks:
     - name: config soufce from jinja2
-      ios_config:
+      arubaoss_config:
         src: "/var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.txt"
