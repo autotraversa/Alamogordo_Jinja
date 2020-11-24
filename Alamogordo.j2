@@ -20,7 +20,7 @@ exit
 {% if loop.index != 1 %}
 {% set list = item.split("$") %}
 vlan {{ list[1]|trim() }}
-name {{ list[0]|trim() }}
+  name {{ list[0]|trim() }}
 {% endif %}
 {% endfor %}
 {% endif %}
