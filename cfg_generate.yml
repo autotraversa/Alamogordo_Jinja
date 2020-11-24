@@ -14,11 +14,11 @@
   - name: Parse CSV To YAML
     template:
       src: "./svi.j2"
-      dest: "/var/lib/awx/projects/_73__alamogordo/config/svi_output.txt"
+      dest: "/var/lib/awx/projects/_73__alamogordo/config/svi_output.cfg"
     run_once: true
 
   - name: Jinja Template
     template:
       src: "./Alamogordo.j2"
-      dest: "/var/lib/awx/projects/_73__alamogordo/config/{{ item.hostname }}.txt"
+      dest: "/var/lib/awx/projects/_73__alamogordo/config/{{ item.hostname }}.cfg"
     loop: "{{ jinja.list }}"
