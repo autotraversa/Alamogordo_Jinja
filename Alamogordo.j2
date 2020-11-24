@@ -4,7 +4,7 @@ hostname {{ item.hostname }}
 ip routing
 {% else %}
 {% endif %}
-{% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 and item.ip_ospf_area != N/A %}
+{% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 and item.ip_ospf_area != "N/A" %}
 vlan 100
 ip add 1.1.1.1/24
 exit
