@@ -1,4 +1,4 @@
-
+conf t
 hostname {{ item.hostname }}
 vlan 1
 no ipv6 enable
@@ -158,17 +158,3 @@ oobm
 ip address {{ item.oobm_mgmt_ip }}
 {% else %}
 {% endif %}
-
-banner motd "WARNING
-WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
- WARNING! WARNING!\nWARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
- WARNING! WARNING! WARNING!\n\n \n\n          You have reached a New Mexico
- State Government owned node.\n\n \n\n1) Unauthorized access, unauthorized
- attempts to access, and attempts to disrupt\n   any or all of this nodes
- services is prohibited.\n\n \n\n2) Unauthorized is defined as not being given
- explicit permission in writing by\n   an authoritative administrator of this
- node.\n   P.O.C.: Steve Van Duyn\n   Phone: (575) 812-6030\n\n \n\n3) Any and
- all violators of this directive will be prosecuted to the furthest ex\ntent of
- all applicable rules and/or public laws!\n\n \n\nWARNING! WARNING! WARNING!
- WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!\nWARNING! WARNING!
- WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!\n"
