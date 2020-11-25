@@ -5,8 +5,8 @@ no ipv6 enable
 no ipv6 address dhcp full
 exit
 {% if item.ip_routing is defined and item.ip_routing == 'yes' %}
-ip routing
 ip route 0.0.0.0/0 10.211.211.1
+ip routing
 {% else %}
 {% endif %}
 {% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}
