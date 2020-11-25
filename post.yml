@@ -4,11 +4,10 @@
     - arubanetworks.aos_switch
   vars:
     - ansible_connection: network_cli
-    - ansible_command_timeout: 60
+#    - ansible_command_timeout: 60
   gather_facts: False
   tasks:
     - name: config soufce from jinja2
       arubaoss_config:
         src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
         match: none
-        timeout: 30
