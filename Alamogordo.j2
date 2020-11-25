@@ -22,6 +22,9 @@ exit
 {% endif %}
 {% if item.dhcp_snooping is defined and item.dhcp_snooping == "yes" %}
 dhcp-snooping
+int {{ spanning_tree_bpdu_filter }}
+dhcp-snooping trust
+exit
 {% else %}
 {% endif %}
 {% if item.l2_vlans is defined and item.l2_vlans == "yes" %}
