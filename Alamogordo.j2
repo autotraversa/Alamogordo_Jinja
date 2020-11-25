@@ -118,6 +118,13 @@ time daylight-time-rule continental-us-and-canada
 time timezone {{ item.timezone }}
 {% else %}
 {% endif %}
+{% if item.dns_server is defined and item.dns_server | length > 0 %}
+{% set dns_server = item.dns_server.split(',') %}
+{% for each_dns_server in dns_server %}
+ip dns server-address priority {{ each_dns_server.index }} {{ each_dns_server }}
+{% endfor %}
+{% else %}
+{% endif %}
 {% if item.dns_suffix is defined and item.dns_suffix | length > 0 %}
 ip dns domain-name {{ item.dns_suffix}}
 {% else %}
