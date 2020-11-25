@@ -6,11 +6,10 @@ ip routing
 {% endif %}
 {% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 and item.ip_ospf_area != "N/A" %}
 vlan 100
-ip add 1.1.1.1/24
+  ip add 1.1.1.1/24
 exit
 router ospf
-area {{ item.ip_ospf_area }}
-enable
+  area {{ item.ip_ospf_area }}
 no vlan 100
 exit
 {% else %}
@@ -50,8 +49,8 @@ ip ospf area {{ list[5]|trim() }}
 {% endif %}
 exit
 {% if item.spanning_tree_mode is defined and item.spanning_tree_mode == "rapid-pvst" %}
-spanning-tree mode rapid-pvst
-y\n
+spanning-tree mode rapid-pvst\n y \n
+
 
 {% else %}
 {% endif %}
