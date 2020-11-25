@@ -7,7 +7,4 @@
         src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
         match: none
         timeout: 60
-        username: admin
-        password: Pr0curve
-        port: 22
        
