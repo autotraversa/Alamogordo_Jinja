@@ -20,6 +20,10 @@ no vlan 100
 exit
 {% else %}
 {% endif %}
+{% if item.dhcp_snooping is defined and item.dhcp_snooping == "yes" %}
+dhcp-snooping
+{% else %}
+{% endif %}
 {% if item.l2_vlans is defined and item.l2_vlans == "yes" %}
 {% for item in csvfile.split("\n") %}
 {% if loop.index != 1 %}
@@ -52,6 +56,10 @@ ip igmp
 ip ospf area {{ list[5]|trim() }}
 {% endif %}
 {% endfor %}
+{% endif %}
+{% if list[6] == "yes" %}
+dhcp-snooping
+{% else %}
 {% endif %}
 exit
 {% if item.spanning_tree_bpdu_filter is defined and item.spanning_tree_bpdu_filter | length > 0 %}
@@ -138,6 +146,11 @@ ip ssh
 ip ssh
 {% elif item.ip_ssh is defined and item.ip_ssh == 'no' %}
 no ip ssh
+{% endif %}
+{% if item.ip_telnet is defined and item.ip_telnet == 'no' %}
+no telnet-server
+{% elif item.ip_telnet is defined and item.ip_telnet == 'yes' %}
+telnet-server
 {% endif %}
 {# if item.web_management_ssl is defined and item.web_management_ssl == 'yes' %}
 crypto pki enroll-self-signed certificate-name SSL subject
