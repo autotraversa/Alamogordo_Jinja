@@ -121,7 +121,7 @@ time timezone {{ item.timezone }}
 {% if item.dns_server is defined and item.dns_server | length > 0 %}
 {% set dns_server = item.dns_server.split(',') %}
 {% for each_dns_server in dns_server %}
-ip dns server-address priority {{ each_dns_server.index }} {{ each_dns_server }}
+ip dns server-address priority {{ loop.index }} {{ each_dns_server }}
 {% endfor %}
 {% else %}
 {% endif %}
