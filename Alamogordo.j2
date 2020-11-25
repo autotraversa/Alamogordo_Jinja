@@ -132,7 +132,7 @@ ip ssh
 {% elif item.ip_ssh is defined and item.ip_ssh == 'no' %}
 no ip ssh
 {% endif %}
-{% if item.web_management_ssl is defined and item.web_management_ssl == 'yes' %}
+{# if item.web_management_ssl is defined and item.web_management_ssl == 'yes' %}
 crypto pki enroll-self-signed certificate-name SSL subject
 Common Name
 Org Unit
@@ -142,7 +142,7 @@ State
 US
 web-management ssl
 {% else %}
-{% endif %}
+{% endif #}
 {% if item.http_server is defined and item.http_server == 'no' %}
 no web-management
 {% else %}
@@ -158,3 +158,8 @@ oobm
 ip address {{ item.oobm_mgmt_ip }}
 {% else %}
 {% endif %}
+
+interface 1/a1
+name "Uplink to MDF"
+tag vlan
+untag vlan
