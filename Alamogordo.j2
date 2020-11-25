@@ -57,12 +57,12 @@ ip igmp
 {% else %}
 {% endif %}
 ip ospf area {{ list[5]|trim() }}
-{% endif %}
-{% endfor %}
-{% endif %}
 {% if list[6] == "yes" %}
 dhcp-snooping
 {% else %}
+{% endif %}
+{% endif %}
+{% endfor %}
 {% endif %}
 exit
 {% if item.spanning_tree_bpdu_filter is defined and item.spanning_tree_bpdu_filter | length > 0 %}
