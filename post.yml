@@ -1,5 +1,7 @@
 ---
 - hosts: all
+  collections:
+    - arubanetworks.aos_switch
   gather_facts: False
   tasks:
     - name: config soufce from jinja2
