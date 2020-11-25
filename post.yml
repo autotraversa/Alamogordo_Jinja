@@ -7,4 +7,6 @@
     - name: config soufce from jinja2
       arubaoss_config:
         src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
-        match: none       
+        match: none
+        lines: {{item}}
+      with_lines: cat /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
