@@ -32,7 +32,7 @@ exit
 {% if loop.index != 1 %}
 {% set list = item.split("$") %}
 vlan {{ list[1]|trim() }}
-name {{ list[0]|trim() }}
+name "{{ list[0]|trim() }}"
 {% if list[6] == "yes" %}
 dhcp-snooping
 {% else %}
