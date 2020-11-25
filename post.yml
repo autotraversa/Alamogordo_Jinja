@@ -10,3 +10,4 @@
       arubaoss_config:
         src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
         match: none
+        authorize: yes
