@@ -166,7 +166,7 @@ ip address {{ item.oobm_mgmt_ip }}
 {% else %}
 {% endif %}
 {% if item.uplink_interface_1 is defined and item.uplink_interface_1 | length > 0 %}
-interface {{ item.uplink_interface }}
+interface {{ item.uplink_interface_1 }}
 {% else %}
 {% endif %}
 {% if item.uplink_name_1 is defined and item.uplink_name_1 | length > 0 %}
@@ -182,7 +182,7 @@ untag vlan {{ item.uplink_untagged_1 }}
 {% else %}
 {% endif %}
 {% if item.uplink_interface_2 is defined and item.uplink_interface_2 | length > 0 %}
-interface {{ item.uplink_interface }}
+interface {{ item.uplink_interface_2 }}
 {% else %}
 {% endif %}
 {% if item.uplink_name_2 is defined and item.uplink_name_2 | length > 0 %}
@@ -198,7 +198,7 @@ untag vlan {{ item.uplink_untagged_2 }}
 {% else %}
 {% endif %}
 {% if item.uplink_interface_3 is defined and item.uplink_interface_3 | length > 0 %}
-interface {{ item.uplink_interface }}
+interface {{ item.uplink_interface_3 }}
 {% else %}
 {% endif %}
 {% if item.uplink_name_3 is defined and item.uplink_name_3 | length > 0 %}
@@ -214,7 +214,7 @@ untag vlan {{ item.uplink_untagged_3 }}
 {% else %}
 {% endif %}
 {% if item.uplink_interface_4 is defined and item.uplink_interface_4 | length > 0 %}
-interface {{ item.uplink_interface }}
+interface {{ item.uplink_interface_4 }}
 {% else %}
 {% endif %}
 {% if item.uplink_name_4 is defined and item.uplink_name_4 | length > 0 %}
@@ -230,7 +230,7 @@ untag vlan {{ item.uplink_untagged_4 }}
 {% else %}
 {% endif %}
 {% if item.uplink_interface_5 is defined and item.uplink_interface_5 | length > 0 %}
-interface {{ item.uplink_interface }}
+interface {{ item.uplink_interface_5 }}
 {% else %}
 {% endif %}
 {% if item.uplink_name_5 is defined and item.uplink_name_5 | length > 0 %}
@@ -246,7 +246,7 @@ untag vlan {{ item.uplink_untagged_5 }}
 {% else %}
 {% endif %}
 {% if item.uplink_interface_6 is defined and item.uplink_interface_6 | length > 0 %}
-interface {{ item.uplink_interface }}
+interface {{ item.uplink_interface_6 }}
 {% else %}
 {% endif %}
 {% if item.uplink_name_6 is defined and item.uplink_name_6 | length > 0 %}
@@ -262,7 +262,7 @@ untag vlan {{ item.uplink_untagged_6 }}
 {% else %}
 {% endif %}
 {% if item.uplink_interface_7 is defined and item.uplink_interface_7 | length > 0 %}
-interface {{ item.uplink_interface }}
+interface {{ item.uplink_interface_7 }}
 {% else %}
 {% endif %}
 {% if item.uplink_name_7 is defined and item.uplink_name_7 | length > 0 %}
@@ -278,7 +278,7 @@ untag vlan {{ item.uplink_untagged_7 }}
 {% else %}
 {% endif %}
 {% if item.uplink_interface_8 is defined and item.uplink_interface_8 | length > 0 %}
-interface {{ item.uplink_interface }}
+interface {{ item.uplink_interface_8 }}
 {% else %}
 {% endif %}
 {% if item.uplink_name_8 is defined and item.uplink_name_8 | length > 0 %}
@@ -294,7 +294,7 @@ untag vlan {{ item.uplink_untagged_8 }}
 {% else %}
 {% endif %}
 {% if item.uplink_interface_9 is defined and item.uplink_interface_9 | length > 0 %}
-interface {{ item.uplink_interface }}
+interface {{ item.uplink_interface_9 }}
 {% else %}
 {% endif %}
 {% if item.uplink_name_9 is defined and item.uplink_name_9 | length > 0 %}
@@ -310,7 +310,7 @@ untag vlan {{ item.uplink_untagged_9 }}
 {% else %}
 {% endif %}
 {% if item.uplink_interface_10 is defined and item.uplink_interface_10 | length > 0 %}
-interface {{ item.uplink_interface }}
+interface {{ item.uplink_interface_10 }}
 {% else %}
 {% endif %}
 {% if item.uplink_name_10 is defined and item.uplink_name_10 | length > 0 %}
