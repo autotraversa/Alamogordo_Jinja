@@ -9,4 +9,5 @@
         timeout: 60
         username: admin
         password: Pr0curve
+        port: 22
        
