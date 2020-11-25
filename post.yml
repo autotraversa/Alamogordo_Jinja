@@ -5,8 +5,6 @@
   gather_facts: False
   tasks:
     - name: config soufce from jinja2
-      become: yes
-      become_method: enable
       arubaoss_config:
         src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
         match: none
