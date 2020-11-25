@@ -7,12 +7,12 @@ exit
 {% if item.ip_routing is defined and item.ip_routing == 'yes' %}
 ip route 0.0.0.0/0 10.211.211.1
 ip routing
-{% else %}
-{% endif %}
-{% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}
 vlan 100
 ip add 1.1.1.1/24
 exit
+{% else %}
+{% endif %}
+{% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}
 router ospf
 area {{ item.ip_ospf_area }}
 enable
@@ -25,7 +25,7 @@ exit
 {% if loop.index != 1 %}
 {% set list = item.split("$") %}
 vlan {{ list[1]|trim() }}
-  name {{ list[0]|trim() }}
+name {{ list[0]|trim() }}
 {% endif %}
 {% endfor %}
 {% endif %}
