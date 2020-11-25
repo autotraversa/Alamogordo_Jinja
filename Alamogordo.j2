@@ -53,7 +53,7 @@ ip ospf area {{ list[5]|trim() }}
 {% endfor %}
 {% endif %}
 exit
-{% elif item.spanning_tree_bpdu_filter is defined and item.spanning_tree_bpdu_filter | length > 0 %}
+{% if item.spanning_tree_bpdu_filter is defined and item.spanning_tree_bpdu_filter | length > 0 %}
 spanning-tree {{ item.spanning_tree_bpdu_filter }} bpdu-filter
 {% else %}
 {% endif %}
