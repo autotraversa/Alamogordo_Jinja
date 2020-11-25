@@ -3,7 +3,7 @@
   collections:
     - arubanetworks.aos_switch
   vars:
-    - connection: ansible.netcommon.network_cli
+    - ansible_connection: network_cli
   gather_facts: False
   tasks:
     - name: config soufce from jinja2
