@@ -8,5 +8,5 @@
       arubaoss_config:
         src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
         match: none
-        lines: {{item}}
+        lines: "{{item}}"
       with_lines: cat /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
