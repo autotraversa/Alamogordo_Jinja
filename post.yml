@@ -8,6 +8,8 @@
   tasks:
     - name: config soufce from jinja2
       arubaoss_config:
+        provider:
+          authorize: yes
         src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
         match: none
-      authorize: yes
+        
