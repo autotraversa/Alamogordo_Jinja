@@ -1,15 +1,20 @@
 
 hostname {{ item.hostname }}
+vlan 1
+no ipv6 enable
+no ipv6 address dhcp full
+exit
 {% if item.ip_routing is defined and item.ip_routing == 'yes' %}
 ip routing
 {% else %}
 {% endif %}
-{% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 and item.ip_ospf_area != "N/A" %}
+{% if item.ip_ospf_area is defined and item.ip_ospf_area | length > 0 %}
 vlan 100
-  ip add 1.1.1.1/24
+ip add 1.1.1.1/24
 exit
 router ospf
-  area {{ item.ip_ospf_area }}
+area {{ item.ip_ospf_area }}
+enable
 no vlan 100
 exit
 {% else %}
@@ -48,6 +53,17 @@ ip ospf area {{ list[5]|trim() }}
 {% endfor %}
 {% endif %}
 exit
+{% if item.spanning_tree_mode is defined and item.spanning_tree_mode == "rapid" %}
+spanning-tree mode rapid-pvst
+y
+{% elif item.spanning_tree_mode is defined and item.spanning_tree_mode == "mst" %}
+spanning-tree
+spanning-tree mode mst
+{% elif item.spanning_tree_mode is defined and item.spanning_tree_mode == "pvst" %}
+spanning-tree
+spanning-tree mode pvst
+{% else %}
+{% endif %}
 {% if item.spanning_tree_vlan is defined and item.spanning_tree_vlan_priority is defined and item.spanning_tree_vlan | length > 0 and item.spanning_tree_vlan_priority | length > 0 %}
 spanning-tree vlan {{ item.spanning_tree_vlan }} priority {{ item.spanning_tree_vlan_priority }}
 {% else %}
@@ -113,12 +129,24 @@ ip ssh
 no ip ssh
 {% endif %}
 {% if item.web_management_ssl is defined and item.web_management_ssl == 'yes' %}
+crypto pki enroll-self-signed certificate-name SSL subject
+Common Name
+Org Unit
+Org Name
+Locality
+State
+US
+web-management ssl
+{% else %}
+{% endif %}
+{% if item.http_server is defined and item.http_server == 'no' %}
 no web-management
 {% else %}
 {% endif %}
 {% if item.mgmt_vlan is defined and item.mgmt_ip is defined and item.mgmt_vlan | length > 0 and item.mgmt_ip | length > 0 %}
 vlan {{ item.mgmt_vlan }}
-  ip address {{ item.mgmt_ip }}
+name Switch-Mgmt
+ip address {{ item.mgmt_ip }}
 {% else %}
 {% endif %}
 {% if item.oobm_mgmt_ip is defined and item.oobm_mgmt_ip | length > 0 %}
