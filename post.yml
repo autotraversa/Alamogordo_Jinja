@@ -8,7 +8,5 @@
   tasks:
     - name: config soufce from jinja2
       arubaoss_config:
-        lines:
-          - hostname test
-#        src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
-#        match: none
+        src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
+        match: none
