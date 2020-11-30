@@ -10,7 +10,10 @@
     - name: config spanning tree
       arubaoss_stp:
         command: config_spanning_tree
-        mode: "STM_RPVST"        
+        mode: "STM_RPVST"
+    - name: Pause after spanning-tree
+      pause:
+        seconds: 10
     - name: config soufce from jinja2
       arubaoss_config:
         src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
