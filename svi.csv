@@ -1,6 +1,6 @@
 vlan_name$vlan_id$vlan_ip_address$vlan_ip_helper$vlan_igmp$vlan_ospf_area$dhcp_snooping
-Switch-Mgmt$2$10.40.2.1/24$N/A$no$40$yes
-Data$10$10.40.10.1/22$10.12.0.59, 10.12.0.69$yes$40$yes
-AP-Mgmt$17$10.40.17.1/24$10.12.0.59, 10.12.0.69$no$40$yes
-VOIP-1$25$10.40.25.1/24$10.12.0.59, 10.12.0.69$yes$40$yes
-Transport to Admin$4040$10.255.255.42/30$N/A$no$40$yes
+Switch-Mgmt$2$10.60.2.1/24$N/A$no$60$yes
+Data$10$10.60.10.1/22$10.12.0.59, 10.12.0.69$yes$60$yes
+AP-Mgmt$17$10.60.17.1/24$10.12.0.59, 10.12.0.69$no$60$yes
+VOIP-1$25$10.60.25.1/24$10.12.0.59, 10.12.0.69$yes$60$yes
+Transport to Admin$4044$10.255.255.46/30$N/A$no$60$yes
