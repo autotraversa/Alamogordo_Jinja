@@ -76,7 +76,6 @@ spanning-tree {{ item.spanning_tree_bpdu_filter }} bpdu-filter
 {% if item.spanning_tree_mode is defined and item.spanning_tree_mode == "rapid" %}
 spanning-tree
 spanning-tree mode rapid-pvst
-y
 {% elif item.spanning_tree_mode is defined and item.spanning_tree_mode == "mst" %}
 spanning-tree
 spanning-tree mode mst
