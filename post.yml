@@ -7,6 +7,10 @@
     - ansible_command_timeout: 60
   gather_facts: False
   tasks:
+    - name: config spanning tree
+      arubaoss_stp:
+        command: config_spanning_tree
+        mode: "STM_RSTP"        
     - name: config soufce from jinja2
       arubaoss_config:
         src: /var/lib/awx/projects/_73__alamogordo/config/{{inventory_hostname}}.cfg
