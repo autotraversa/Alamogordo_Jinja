@@ -11,7 +11,7 @@
     register: jinja
     delegate_to: localhost
 
-  - name: Parse CSV To YAML
+  - name: Parse CSV To YAML, This is vlan conversion
     template:
       src: "./svi.j2"
       dest: "/var/lib/awx/projects/_73__alamogordo/config/svi_output.cfg"
